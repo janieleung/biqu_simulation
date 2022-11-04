@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.actions import RegisterEventHandler
+from launch.actions import RegisterEventHandler, ExecuteProcess
 from launch.event_handlers import OnProcessExit
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
 
@@ -22,6 +22,12 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+
+    gazebo = ExecuteProcess(
+        cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'],
+        output='screen'
+    )
+
     # Get URDF via xacro
     robot_description_content = Command(
         [
@@ -44,6 +50,11 @@ def generate_launch_description():
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare("diffbot_description"), "config", "diffbot.rviz"]
     )
+
+    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
+                       arguments=['-topic', 'robot_description',
+                                  '-entity', 'robot'],
+                       output='screen')
 
     control_node = Node(
         package="controller_manager",
@@ -97,11 +108,13 @@ def generate_launch_description():
     )
 
     nodes = [
+        gazebo,
         control_node,
         robot_state_pub_node,
         joint_state_broadcaster_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
+        spawn_entity
     ]
 
     return LaunchDescription(nodes)
