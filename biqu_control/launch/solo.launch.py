@@ -51,7 +51,7 @@ def generate_launch_description():
         parameters=[params]
     )
 
-    # Spawn Entity, change entity name
+    # Spawn Entity, I don't think entity name matters
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'solo'],
