@@ -62,7 +62,7 @@ def generate_launch_description():
 
     xacro_file = os.path.join(description_path,
                               'urdf',
-                              'test.urdf.xacro')
+                              'solo12_description.xacro')
 
     doc = xacro.parse(open(xacro_file))
     xacro.process_doc(doc)
@@ -80,7 +80,7 @@ def generate_launch_description():
     spawn_entity = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
-        arguments=["-topic", "robot_description", "-entity", "solo", "-x 0", "-y 0", "-z 1"],
+        arguments=["-topic", "robot_description", "-entity", "solo", "-x 0", "-y 0", "-z 0"],
         output="screen",
     )
 
@@ -103,7 +103,7 @@ def generate_launch_description():
             "load_controller",
             "--set-state",
             "active",
-            "joint_trajectory_controller",
+            "forward_position_controller",
         ],
         output="screen",
     )

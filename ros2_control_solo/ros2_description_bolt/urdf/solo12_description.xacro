@@ -21,46 +21,33 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
   <xacro:arg name="use_sim" default="false" />
   <xacro:arg name="use_fake_hardware" default="false" />
 
-  <!-- Include the legs -->
+  <!-- Include the urdf -->
   <xacro:include filename="$(find ros2_description_bolt)/urdf/solo_xacro/solo12.urdf.xacro"/>
-  <!-- <xacro:include filename="system_bolt.urdf.xacro"/> -->
-  
-  <!--If we use Gazebo-->
-  <!-- <xacro:if value="$(arg use_sim)">
-    <xacro:if value="$(arg use_crane)">
-      <xacro:include filename="$(find ros2_description_bolt)/urdf/crane.urdf.xacro" />
-    </xacro:if>
-  </xacro:if> -->
 
+  <!-- Include the ros2_control plugin and Hardware Description-->
   <xacro:include filename="$(find ros2_description_bolt)/ros2_control/system_solo.ros2_control.xacro" />
 
-  <!-- ros_control plugin for Gazebo -->
-  <!-- Use bolt control plugin for now-->
-  <xacro:if value="$(arg use_sim)">
-    <gazebo>
-      <plugin name="gazebo_ros2_bolt" filename="libgazebo_ros2_control_bolt.so">
-	<parameters>$(find gazebo_ros2_control_bolt)/config/bolt_gazebo_config_controller.yaml</parameters>
-      </plugin>
-    </gazebo>
-  </xacro:if>
+  <!-- Include the Gazebo plugin for ros2_control-->
+  <!-- Notes: https://github.com/ros-controls/gazebo_ros2_control/blob/master/README.md-->
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find gazebo_ros2_control_bolt)/config/solo_gazebo_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
 
-  <!-- <xacro:if value="$(arg use_sim)">
-    <xacro:if value="$(arg use_crane)">
-      <xacro:crane parent="base_link" />
-    </xacro:if>
-  </xacro:if> -->
+  <!-- Might need to add Gazebo reference later-->
 
 
-  <!-- Include the fully parametrized bolt -->
+  <!-- Add the full robot from urdf-->
   <xacro:solo_full
       mesh_ext="${mesh_ext}"
       color_name="${color_name}"
       color="${color}"
       opacity="${opacity}"/>
 
-
+  <!-- Add the System from ros2_control-->
   <xacro:system_solo_ros2_control
-    name="SystemBoltRos2Control" prefix="$(arg prefix)" use_fake_hardware="$(arg use_fake_hardware)"
+    name="SystemRos2Control" prefix="$(arg prefix)" use_fake_hardware="$(arg use_fake_hardware)"
       use_sim="$(arg use_sim)"/>
 
 </robot>

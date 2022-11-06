@@ -1,0 +1,55 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # Notes: https://github.com/ros-controls/ros2_controllers
+    # Examples: https://github.com/ros-controls/ros2_control_demos
+    forward_position_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    # effort_controllers:
+    #   type: effort_controllers/JointPositionController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+forward_position_controller:
+  ros__parameters:
+    joints:
+      - FL_HAA
+      - FR_HAA
+      - HL_HAA
+      - HR_HAA
+      - FL_HFE
+      - FR_HFE
+      - HL_HFE
+      - HR_HFE
+      - FL_KFE
+      - FR_KFE
+      - HL_KFE
+      - HR_KFE
+    origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    interface_name: position
+
+# effort_controllers:
+#   ros__parameters:
+#     joints:
+#       - FL_HAA
+#       - FR_HAA
+#       - HL_HAA
+#       - HR_HAA
+#       - FL_HFE
+#       - FR_HFE
+#       - HL_HFE
+#       - HR_HFE
+#       - FL_KFE
+#       - FR_KFE
+#       - HL_KFE
+#       - HR_KFE
+#     command_interfaces:
+#       - effort
+#     state_interfaces:
+#       - position
+#       - velocity
+#       - effort
