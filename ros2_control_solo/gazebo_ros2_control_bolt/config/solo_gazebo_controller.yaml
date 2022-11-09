@@ -7,6 +7,9 @@ controller_manager:
     forward_position_controller:
       type: forward_command_controller/ForwardCommandController
 
+    forward_velocity_controller:
+      type: forward_command_controller/ForwardCommandController
+
     # effort_controllers:
     #   type: effort_controllers/JointPositionController
 
@@ -31,6 +34,25 @@ forward_position_controller:
     origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     interface_name: position
+
+forward_velocity_controller:
+  ros__parameters:
+    joints:
+      - FL_HAA
+      - FR_HAA
+      - HL_HAA
+      - HR_HAA
+      - FL_HFE
+      - FR_HFE
+      - HL_HFE
+      - HR_HFE
+      - FL_KFE
+      - FR_KFE
+      - HL_KFE
+      - HR_KFE
+    origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    interface_name: velocity
 
 # effort_controllers:
 #   ros__parameters:

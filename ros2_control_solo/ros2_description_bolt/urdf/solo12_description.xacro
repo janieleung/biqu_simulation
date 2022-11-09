@@ -36,6 +36,10 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
   </gazebo>
 
   <!-- Might need to add Gazebo reference later-->
+  
+  <!--Attach Crane-->
+    <xacro:include filename="$(find ros2_description_bolt)/urdf/crane.urdf.xacro" />
+    <xacro:crane parent="base_link" />
 
 
   <!-- Add the full robot from urdf-->

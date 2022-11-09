@@ -64,6 +64,12 @@ def generate_launch_description():
                               'urdf',
                               'solo12_description.xacro')
 
+    # support_file = os.path.join(description_path,
+    #                           'urdf',
+    #                           'support.urdf')
+
+    support_file = "home/biqu-ws/src/ros2_control_solo/ros2_description_bolt/urdf/support.urdf"
+
     doc = xacro.parse(open(xacro_file))
     xacro.process_doc(doc)
     params = {'robot_description': doc.toxml()}
@@ -80,7 +86,14 @@ def generate_launch_description():
     spawn_entity = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
-        arguments=["-topic", "robot_description", "-entity", "solo", "-x 0", "-y 0", "-z 0"],
+        arguments=["-topic", "robot_description", "-entity", "solo", "-x 0", "-y 0", "-z 0.35"],
+        output="screen",
+    )
+
+    spawn_support = Node(
+        package="gazebo_ros",
+        executable="spawn_entity.py",
+        arguments=["-file", "/home/janie/biqu-ws/src/ros2_control_solo/ros2_description_bolt/urdf/support.urdf", "-entity", "support", "-x 0", "-y 0", "-z 0", "-R 0", "-P 0", "-Y 0"],
         output="screen",
     )
 
@@ -108,6 +121,18 @@ def generate_launch_description():
         output="screen",
     )
 
+    load_forward_velocity_controller = ExecuteProcess(
+        cmd=[
+            "ros2",
+            "control",
+            "load_controller",
+            "--set-state",
+            "active",
+            "forward_velocity_controller",
+        ],
+        output="screen",
+    )
+
     return LaunchDescription(
         [
             RegisterEventHandler(
@@ -122,8 +147,16 @@ def generate_launch_description():
                     on_exit=[load_joint_trajectory_controller],
                 )
             ),
+            RegisterEventHandler(
+                event_handler=OnProcessExit(
+                    target_action=load_joint_trajectory_controller,
+                    on_exit=[load_forward_velocity_controller],
+                )
+            ),
             gazebo,
+            #spawn_support,
             node_robot_state_publisher,
             spawn_entity,
+            
         ]
     )
