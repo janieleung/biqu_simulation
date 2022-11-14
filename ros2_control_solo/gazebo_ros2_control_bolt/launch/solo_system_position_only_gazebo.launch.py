@@ -26,7 +26,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "verbose": "false",
-            "pause": "true",
+            "pause": "false",
             "world": arg_world_filename,
         }.items(),
     )
@@ -133,6 +133,17 @@ def generate_launch_description():
         output="screen",
     )
 
+    load_forward_effort_controller = ExecuteProcess(
+        cmd=[
+            "ros2",
+            "control",
+            "load_controller",
+            "--set-state",
+            "active",
+            "effort_controllers",
+        ],
+        output="screen",
+    )
     return LaunchDescription(
         [
             RegisterEventHandler(
@@ -147,12 +158,18 @@ def generate_launch_description():
                     on_exit=[load_joint_trajectory_controller],
                 )
             ),
-            RegisterEventHandler(
-                event_handler=OnProcessExit(
-                    target_action=load_joint_trajectory_controller,
-                    on_exit=[load_forward_velocity_controller],
-                )
-            ),
+            # RegisterEventHandler(
+            #     event_handler=OnProcessExit(
+            #         target_action=load_joint_trajectory_controller,
+            #         on_exit=[load_forward_velocity_controller],
+            #     )
+            # ),
+            # RegisterEventHandler(
+            #     event_handler=OnProcessExit(
+            #         target_action=load_forward_velocity_controller,
+            #         on_exit=[load_forward_effort_controller],
+            #     )
+            # ),
             gazebo,
             #spawn_support,
             node_robot_state_publisher,
