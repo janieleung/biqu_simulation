@@ -26,7 +26,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "verbose": "false",
-            "pause": "false",
+            "pause": "true",
             "world": arg_world_filename,
         }.items(),
     )
@@ -121,29 +121,29 @@ def generate_launch_description():
         output="screen",
     )
 
-    load_forward_velocity_controller = ExecuteProcess(
-        cmd=[
-            "ros2",
-            "control",
-            "load_controller",
-            "--set-state",
-            "active",
-            "forward_velocity_controller",
-        ],
-        output="screen",
-    )
+    # load_forward_velocity_controller = ExecuteProcess(
+    #     cmd=[
+    #         "ros2",
+    #         "control",
+    #         "load_controller",
+    #         "--set-state",
+    #         "active",
+    #         "forward_velocity_controller",
+    #     ],
+    #     output="screen",
+    # )
 
-    load_forward_effort_controller = ExecuteProcess(
-        cmd=[
-            "ros2",
-            "control",
-            "load_controller",
-            "--set-state",
-            "active",
-            "effort_controllers",
-        ],
-        output="screen",
-    )
+    # load_forward_effort_controller = ExecuteProcess(
+    #     cmd=[
+    #         "ros2",
+    #         "control",
+    #         "load_controller",
+    #         "--set-state",
+    #         "active",
+    #         "effort_controllers",
+    #     ],
+    #     output="screen",
+    # )
     return LaunchDescription(
         [
             RegisterEventHandler(

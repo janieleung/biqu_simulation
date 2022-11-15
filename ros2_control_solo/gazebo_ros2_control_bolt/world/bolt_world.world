@@ -10,8 +10,8 @@
       <include>
          <uri>model://ground_plane</uri>
       </include>
-      
-      <physics type="ode">
+
+      <!-- <physics type="ode">
          <max_contacts>20</max_contacts>
          <max_step_size>0.001</max_step_size>
          <real_time_factor>1</real_time_factor>
@@ -32,7 +32,7 @@
             <contact_surface_layer>0.001</contact_surface_layer>
 
          </ode>
-      </physics>
+      </physics> -->
 
    </world>
 </sdf>

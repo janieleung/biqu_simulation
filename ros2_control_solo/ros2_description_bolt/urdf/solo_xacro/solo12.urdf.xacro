@@ -5,10 +5,10 @@
   xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
   xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
-  <!-- <xacro:property name="color_name" value="grey" />
+  <xacro:property name="color_name" value="grey" />
   <xacro:property name="color" value="0.8 0.8 0.8" />
   <xacro:property name="opacity" value="1.0" />
-  <xacro:property name="mesh_ext" value="stl" /> -->
+  <xacro:property name="mesh_ext" value="stl" />
 
   <xacro:macro name="solo_full" params="mesh_ext color_name color opacity">
     <!-- This file is based on: https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/master/mechanics/quadruped_robot_12dof_v1/README.md#quadruped-robot-12dof-v1 -->

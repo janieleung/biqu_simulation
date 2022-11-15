@@ -16,11 +16,6 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
   <xacro:property name="color" value="0.8 0.8 0.8" />
   <xacro:property name="opacity" value="1.0" />
 
-  <xacro:arg name="prefix" default="" />
-  <xacro:arg name="use_crane" default="true" />
-  <xacro:arg name="use_sim" default="false" />
-  <xacro:arg name="use_fake_hardware" default="false" />
-
   <!-- Include the urdf -->
   <xacro:include filename="$(find ros2_description_bolt)/urdf/solo_xacro/solo12.urdf.xacro"/>
 
@@ -50,8 +45,6 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
       opacity="${opacity}"/>
 
   <!-- Add the System from ros2_control-->
-  <xacro:system_solo_ros2_control
-    name="SystemRos2Control" prefix="$(arg prefix)" use_fake_hardware="$(arg use_fake_hardware)"
-      use_sim="$(arg use_sim)"/>
+  <xacro:system_solo_ros2_control name="SystemRos2Control"/>
 
 </robot>
