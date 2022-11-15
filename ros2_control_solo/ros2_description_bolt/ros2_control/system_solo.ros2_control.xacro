@@ -15,15 +15,19 @@
 
       <joint name="FL_HAA">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
           <param name="initial_value">0.0</param>
@@ -33,198 +37,242 @@
 
       <joint name="FR_HAA">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
         <state_interface name="position">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="HL_HAA">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="HR_HAA">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="FL_HFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
-        </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+        </command_interface>        
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="FR_HFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="HL_HFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="HR_HFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="FL_KFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="FR_KFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="HL_KFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>
 
       <joint name="HR_KFE">
         <command_interface name="position">
-          <param name="min">-1</param>
-          <param name="max">1</param>
+          <param name="min">-0.9</param>
+          <param name="max">0.9</param>
         </command_interface>
         <command_interface name="velocity">
+          <!-- <param name="min">-1</param>
+          <param name="max">1</param> -->
+        </command_interface>
+        <command_interface name="effort">
           <param name="min">-1</param>
           <param name="max">1</param>
         </command_interface>
-        <state_interface name="position">
-          <param name="initial_value">0.0</param>
+       <state_interface name="position">
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+          <!-- <param name="initial_value">0.0</param> -->
         </state_interface>
         <state_interface name="effort"/>
       </joint>

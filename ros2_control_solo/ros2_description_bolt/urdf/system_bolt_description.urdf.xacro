@@ -19,7 +19,7 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
   <xacro:property name="has_passive_ankle" value="false" />
   <xacro:arg name="prefix" default="" />
   <xacro:arg name="use_crane" default="true" />
-  <xacro:arg name="use_sim" default="false" />
+  <xacro:arg name="use_sim" default="true" />
   <xacro:arg name="use_fake_hardware" default="false" />
 
   <!-- Include the legs -->

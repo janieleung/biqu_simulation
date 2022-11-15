@@ -10,8 +10,11 @@ controller_manager:
     forward_velocity_controller:
       type: forward_command_controller/ForwardCommandController
 
-    # effort_controllers:
-    #   type: effort_controllers/JointPositionController
+    # forward_effort_controller:
+      # type: forward_command_controller/ForwardCommandController
+
+    effort_controllers:
+      type: effort_controllers/JointGroupEffortController
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -31,7 +34,7 @@ forward_position_controller:
       - FR_KFE
       - HL_KFE
       - HR_KFE
-    origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    # origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     interface_name: position
 
@@ -50,11 +53,11 @@ forward_velocity_controller:
       - FR_KFE
       - HL_KFE
       - HR_KFE
-    origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    # origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     interface_name: velocity
 
-# effort_controllers:
+# forward_effort_controller:
 #   ros__parameters:
 #     joints:
 #       - FL_HAA
@@ -69,9 +72,28 @@ forward_velocity_controller:
 #       - FR_KFE
 #       - HL_KFE
 #       - HR_KFE
-#     command_interfaces:
-#       - effort
-#     state_interfaces:
-#       - position
-#       - velocity
-#       - effort
+#     origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+#     interface_name: effort    
+
+effort_controllers:
+  ros__parameters:
+    joints:
+      - FL_HAA
+      - FR_HAA
+      - HL_HAA
+      - HR_HAA
+      - FL_HFE
+      - FR_HFE
+      - HL_HFE
+      - HR_HFE
+      - FL_KFE
+      - FR_KFE
+      - HL_KFE
+      - HR_KFE
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      - effort
