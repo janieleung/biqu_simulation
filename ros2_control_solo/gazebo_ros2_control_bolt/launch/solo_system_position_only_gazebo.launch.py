@@ -36,26 +36,27 @@ def generate_launch_description():
 
     # Get URDF via xacro
     # Checkpoint 1: URDF change
-    robot_description_content = Command(
-        [
-            PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ",
-            PathJoinSubstitution(
-                [
-                    FindPackageShare("ros2_description_bolt"),
-                    "urdf",
-                    "test.urdf.xacro",
-                ]
-            ),
-            " use_sim:=true",
-        ]
-    )
+    # robot_description_content = Command(
+    #     [
+    #         PathJoinSubstitution([FindExecutable(name="xacro")]),
+    #         " ",
+    #         PathJoinSubstitution(
+    #             [
+    #                 FindPackageShare("ros2_description_bolt"),
+    #                 "urdf",
+    #                 "test.urdf.xacro",
+    #             ]
+    #         ),
+    #         " use_sim:=true",
+    #     ]
+    # )
     
-    print("URDF CONTENT: DONE")
+    # print("URDF CONTENT: DONE")
 
-    robot_description = {"robot_description": robot_description_content}
+    # robot_description = {"robot_description": robot_description_content}
 
-    print("ROBOT DESCRIPTION: DONE")
+    gazebo_control_path = os.path.join(
+        get_package_share_directory('gazebo_ros2_control_bolt'))
 
     description_path = os.path.join(
         get_package_share_directory('ros2_description_bolt'))
@@ -63,6 +64,9 @@ def generate_launch_description():
     xacro_file = os.path.join(description_path,
                               'urdf',
                               'solo12_description.xacro')
+
+    
+    print("ROBOT DESCRIPTION: DONE")
 
     # support_file = os.path.join(description_path,
     #                           'urdf',
@@ -78,7 +82,7 @@ def generate_launch_description():
     node_robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        output="screen",
+        output="both",
         parameters=[params],
     )
 
@@ -97,6 +101,14 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Checkpoint 3: Controller Manager
+
+    controller_config = os.path.join(
+        gazebo_control_path,
+        "config",
+        "solo_gazebo_controller.yaml",
+    )
+
     load_joint_state_controller = ExecuteProcess(
         cmd=[
             "ros2",
@@ -109,67 +121,52 @@ def generate_launch_description():
         output="screen",
     )
 
-    load_joint_trajectory_controller = ExecuteProcess(
+    load_joint_group_controller = ExecuteProcess(
         cmd=[
             "ros2",
             "control",
             "load_controller",
             "--set-state",
             "active",
-            "forward_position_controller",
+            "joint_group_controller",
         ],
         output="screen",
     )
 
-    # load_forward_velocity_controller = ExecuteProcess(
-    #     cmd=[
-    #         "ros2",
-    #         "control",
-    #         "load_controller",
-    #         "--set-state",
-    #         "active",
-    #         "forward_velocity_controller",
-    #     ],
-    #     output="screen",
-    # )
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+    )
 
-    # load_forward_effort_controller = ExecuteProcess(
-    #     cmd=[
-    #         "ros2",
-    #         "control",
-    #         "load_controller",
-    #         "--set-state",
-    #         "active",
-    #         "effort_controllers",
-    #     ],
-    #     output="screen",
-    # )
+    spawn_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_group_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
+    ## CHECKLIST:
+    # gazebo
+    # robot state publisher
+    # spawn entity
+    # joint state broadcaster
+    # joint group controller
+
     return LaunchDescription(
         [
             RegisterEventHandler(
                 event_handler=OnProcessExit(
                     target_action=spawn_entity,
-                    on_exit=[load_joint_state_controller],
+                    on_exit=[joint_state_broadcaster_spawner],
                 )
             ),
             RegisterEventHandler(
                 event_handler=OnProcessExit(
-                    target_action=load_joint_state_controller,
-                    on_exit=[load_joint_trajectory_controller],
+                    target_action=joint_state_broadcaster_spawner,
+                    on_exit=[spawn_controller],
                 )
             ),
-            # RegisterEventHandler(
-            #     event_handler=OnProcessExit(
-            #         target_action=load_joint_trajectory_controller,
-            #         on_exit=[load_forward_velocity_controller],
-            #     )
-            # ),
-            # RegisterEventHandler(
-            #     event_handler=OnProcessExit(
-            #         target_action=load_forward_velocity_controller,
-            #         on_exit=[load_forward_effort_controller],
-            #     )
-            # ),
             gazebo,
             #spawn_support,
             node_robot_state_publisher,
