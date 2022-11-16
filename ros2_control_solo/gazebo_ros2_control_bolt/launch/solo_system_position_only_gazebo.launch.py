@@ -15,7 +15,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     arg_world_filename = PathJoinSubstitution(
-        [FindPackageShare("gazebo_ros2_control_bolt"), "world", "bolt_world.world"]
+        [FindPackageShare("gazebo_ros2_control_bolt"), "world", "default_world.world"]
     )
 
     print("WORLD NODE: DONE")
@@ -32,28 +32,6 @@ def generate_launch_description():
     )
 
     print("GAZEBO NODE: DONE")
-
-
-    # Get URDF via xacro
-    # Checkpoint 1: URDF change
-    # robot_description_content = Command(
-    #     [
-    #         PathJoinSubstitution([FindExecutable(name="xacro")]),
-    #         " ",
-    #         PathJoinSubstitution(
-    #             [
-    #                 FindPackageShare("ros2_description_bolt"),
-    #                 "urdf",
-    #                 "test.urdf.xacro",
-    #             ]
-    #         ),
-    #         " use_sim:=true",
-    #     ]
-    # )
-    
-    # print("URDF CONTENT: DONE")
-
-    # robot_description = {"robot_description": robot_description_content}
 
     gazebo_control_path = os.path.join(
         get_package_share_directory('gazebo_ros2_control_bolt'))

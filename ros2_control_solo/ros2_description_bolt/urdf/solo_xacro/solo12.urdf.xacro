@@ -22,9 +22,6 @@
                                     iyy="0.01388510"  iyz="-0.00000009"
                                                       izz="0.01605370"
           />
-          <!-- <mass value="1.16115091"/> -->
-          <!-- The base is extremely symmetrical. -->
-          <!-- <inertia ixx="0.00578574" ixy="0.0" ixz="0.0" iyy="0.01938108" iyz="0.0" izz="0.02476124"/> -->
       </inertial>
       <!-- BASE LINK VISUAL -->
       <visual>
@@ -49,10 +46,10 @@
           </material>
       </collision>
       <!-- Bullet specific paramters -->
-      <contact>
+      <!-- <contact>
         <lateral_friction value="1.0"/>
         <restitution value="0.5"/>
-      </contact>
+      </contact> -->
     </link> <!-- END BASE LINK -->
 
     <!-- Include the legs -->

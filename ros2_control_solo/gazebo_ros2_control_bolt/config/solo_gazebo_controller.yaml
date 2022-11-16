@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 500  # Hz
+    update_rate: 100  # Hz
     # default_kp: 1000.0
     # default_kd: 10.0
 
@@ -45,64 +45,3 @@ joint_group_controller:
       - position
       - velocity
       - effort
-
-
-# forward_velocity_controller:
-#   ros__parameters:
-#     joints:
-#       - FL_HAA
-#       - FR_HAA
-#       - HL_HAA
-#       - HR_HAA
-#       - FL_HFE
-#       - FR_HFE
-#       - HL_HFE
-#       - HR_HFE
-#       - FL_KFE
-#       - FR_KFE
-#       - HL_KFE
-#       - HR_KFE
-#     # origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-
-#     interface_name: velocity
-
-# forward_effort_controller:
-#   ros__parameters:
-#     joints:
-#       - FL_HAA
-#       - FR_HAA
-#       - HL_HAA
-#       - HR_HAA
-#       - FL_HFE
-#       - FR_HFE
-#       - HL_HFE
-#       - HR_HFE
-#       - FL_KFE
-#       - FR_KFE
-#       - HL_KFE
-#       - HR_KFE
-#     origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-
-#     interface_name: effort    
-
-# effort_controllers:
-#   ros__parameters:
-#     joints:
-#       - FL_HAA
-#       - FR_HAA
-#       - HL_HAA
-#       - HR_HAA
-#       - FL_HFE
-#       - FR_HFE
-#       - HL_HFE
-#       - HR_HFE
-#       - FL_KFE
-#       - FR_KFE
-#       - HL_KFE
-#       - HR_KFE
-#     command_interfaces:
-#       - effort
-#     state_interfaces:
-#       - position
-#       - velocity
-#       - effort
