@@ -15,7 +15,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
 
     arg_world_filename = PathJoinSubstitution(
-        [FindPackageShare("gazebo_ros2_control_bolt"), "world", "default_world.world"]
+        [FindPackageShare("gazebo_ros2_control_bolt"), "world", "solo_world.world"]
     )
 
     print("WORLD NODE: DONE")
@@ -68,7 +68,7 @@ def generate_launch_description():
     spawn_entity = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
-        arguments=["-topic", "robot_description", "-entity", "solo", "-x 0", "-y 0", "-z 0.35"],
+        arguments=["-topic", "robot_description", "-entity", "solo", "-x 0", "-y 0", "-z 0.50"],
         output="screen",
     )
 

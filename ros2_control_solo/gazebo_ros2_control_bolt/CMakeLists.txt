@@ -88,6 +88,4 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
-pluginlib_export_plugin_description_file(gazebo_ros2_control_bolt gazebo_hardware_bolt_plugins.xml)
-
 ament_package()

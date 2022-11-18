@@ -28,16 +28,16 @@ joint_group_controller:
   ros__parameters:
     joints:
       - FL_HAA
-      - FR_HAA
-      - HL_HAA
-      - HR_HAA
       - FL_HFE
-      - FR_HFE
-      - HL_HFE
-      - HR_HFE
       - FL_KFE
+      - FR_HAA
+      - FR_HFE
       - FR_KFE
+      - HL_HAA
+      - HL_HFE
       - HL_KFE
+      - HR_HAA
+      - HR_HFE
       - HR_KFE
     command_interfaces:
       - position

@@ -14,6 +14,7 @@
         </attenuation>
         <direction>-0.5 0.5 -1</direction>
       </light>
+
       <model name='ground_plane'>
         <static>1</static>
         <link name='link'>
@@ -61,6 +62,7 @@
           <gravity>1</gravity>
         </link>
       </model>
+
       <gravity>0 0 -9.8</gravity>
       <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
       <atmosphere type='adiabatic'/>
@@ -81,11 +83,13 @@
         <elevation>0</elevation>
         <heading_deg>0</heading_deg>
       </spherical_coordinates>
+
       <state world_name='default'>
         <sim_time>0</sim_time>
         <real_time>0</real_time>
         <wall_time>0</wall_time>
         <iterations>22823</iterations>
+
         <model name='ground_plane'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <scale>1 1 1</scale>
@@ -100,6 +104,7 @@
           <pose frame=''>0 0 10 0 -0 0</pose>
         </light>
       </state>
+      
       <gui fullscreen='0'>
         <camera name='user_camera'>
           <pose frame=''>4.60123 -4.94126 1.71211 0 0.275643 2.35619</pose>
