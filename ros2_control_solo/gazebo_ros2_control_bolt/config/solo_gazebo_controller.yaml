@@ -18,13 +18,38 @@ controller_manager:
     # effort_controllers:
     #   type: effort_controllers/JointGroupEffortController
 
-    joint_group_controller:
-      type: position_controllers/JointGroupPositionController
+    # joint_group_controller:
+    #   type: position_controllers/JointGroupPositionController
     
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-joint_group_controller:
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+# joint_group_controller:
+#   ros__parameters:
+#     joints:
+#       - FL_HAA
+#       - FL_HFE
+#       - FL_KFE
+#       - FR_HAA
+#       - FR_HFE
+#       - FR_KFE
+#       - HL_HAA
+#       - HL_HFE
+#       - HL_KFE
+#       - HR_HAA
+#       - HR_HFE
+#       - HR_KFE
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#       - velocity
+#       - effort
+
+joint_trajectory_controller:
   ros__parameters:
     joints:
       - FL_HAA
@@ -45,3 +70,4 @@ joint_group_controller:
       - position
       - velocity
       - effort
+  
