@@ -15,8 +15,8 @@
 
       <joint name="FL_HAA">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <!-- <param name="min">-3.14</param>
+          <param name="max">3.14</param> -->
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">0.0001</param> -->
@@ -27,8 +27,8 @@
 
       <joint name="FR_HAA">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <!-- <param name="min">-3.14</param>
+          <param name="max">3.14</param> -->
         </command_interface>
         <state_interface name="position">
           <!-- <param name="initial_value">0.0001</param> -->
@@ -39,8 +39,8 @@
 
       <joint name="HL_HAA">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <!-- <param name="min">-3.14</param>
+          <param name="max">3.14</param> -->
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">0.0001</param> -->
@@ -51,8 +51,8 @@
 
       <joint name="HR_HAA">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <!-- <param name="min">-3.14</param>
+          <param name="max">3.14</param> -->
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">0.0001</param> -->
@@ -63,8 +63,8 @@
 
       <joint name="FL_HFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.2</param>
+          <param name="max">1.2</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">1.57</param> -->
@@ -76,8 +76,8 @@
 
       <joint name="FR_HFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.2</param>
+          <param name="max">1.2</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">1.57</param> -->
@@ -89,8 +89,8 @@
 
       <joint name="HL_HFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.2</param>
+          <param name="max">1.2</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">-1.57</param> -->
@@ -102,8 +102,8 @@
 
       <joint name="HR_HFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.2</param>
+          <param name="max">1.2</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">-1.57</param> -->
@@ -115,8 +115,8 @@
 
       <joint name="FL_KFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.1</param>
+          <param name="max">1.1</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">3.14</param> -->
@@ -128,8 +128,8 @@
 
       <joint name="FR_KFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.1</param>
+          <param name="max">1.1</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">3.14</param> -->
@@ -141,8 +141,8 @@
 
       <joint name="HL_KFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.1</param>
+          <param name="max">1.1</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">3.14</param> -->
@@ -154,8 +154,8 @@
 
       <joint name="HR_KFE">
         <command_interface name="effort">
-          <param name="min">-3.14</param>
-          <param name="max">3.14</param>
+          <param name="min">-1.1</param>
+          <param name="max">1.1</param>
         </command_interface>
        <state_interface name="position">
           <!-- <param name="initial_value">3.14</param> -->

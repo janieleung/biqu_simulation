@@ -81,36 +81,6 @@ def generate_launch_description():
 
     # Checkpoint 3: Controller Manager
 
-    controller_config = os.path.join(
-        gazebo_control_path,
-        "config",
-        "solo_gazebo_controller.yaml",
-    )
-
-    load_joint_state_controller = ExecuteProcess(
-        cmd=[
-            "ros2",
-            "control",
-            "load_controller",
-            "--set-state",
-            "active",
-            "joint_state_broadcaster",
-        ],
-        output="screen",
-    )
-
-    load_joint_group_controller = ExecuteProcess(
-        cmd=[
-            "ros2",
-            "control",
-            "load_controller",
-            "--set-state",
-            "active",
-            "joint_group_controller",
-        ],
-        output="screen",
-    )
-
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -120,7 +90,7 @@ def generate_launch_description():
     spawn_controller = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_group_controller", "--controller-manager", "/controller_manager"],
+        arguments=["forward_effort_controller", "--controller-manager", "/controller_manager"],
         output="screen",
     )
 

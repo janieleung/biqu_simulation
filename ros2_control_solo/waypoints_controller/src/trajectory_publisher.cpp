@@ -20,22 +20,37 @@ class TrajectoryPublisher : public rclcpp::Node
     PositionPublisher()
     : Node("trajectory_publisher"), count_(0)
     {
-      publisher_ = this->create_publisher<trajectory_msgs::msg::Float64MultiArray>("/joint_group_controller/commands", 10);
+      publisher_ = this->create_publisher<trajectory_msgs::msg::Float64MultiArray>("/joint_trajectory_controller/commands", 10);
       timer_ = this->create_wall_timer(
-      1000ms, std::bind(&PositionPublisher::timer_callback, this));
+      5000ms, std::bind(&PositionPublisher::timer_callback, this));
     }
 
   private:
     void timer_callback()
     {
       auto message_traj = trajectory_msgs::msg::JointTrajectory();
-      auto message_point = trajectory_msgs::msg::JointTrajectoryPoint();
+      auto message_point1 = trajectory_msgs::msg::JointTrajectoryPoint();
 
-      message_point->effort = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5};
-      message_point->time_from_start = 6;
+      message_point1.position = {0.0, -0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+      message_point1.time_from_start = 1;
 
-      message_traj->joint_names = {"FL_HAA", "FL_HFE", "FL_KFE", "FR_HAA", "FR_HFE", "FR_KFE", "HL_HAA", "HL_HFE", "HL_KFE", "HR_HAA", "HR_HFE", "HR_KFE"};
-      message_traj->points = message_point;
+      auto message_point2 = trajectory_msgs::msg::JointTrajectoryPoint();
+      message_point2.position = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+      message_point2.time_from_start = 1;
+
+      auto message_point3 = trajectory_msgs::msg::JointTrajectoryPoint();
+      message_point3.position = {0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+      message_point3.time_from_start = 1;
+
+      auto message_point4 = trajectory_msgs::msg::JointTrajectoryPoint();
+      message_point4.position = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+      message_point4.time_from_start = 1;
+
+      message_traj.joint_names = {"FL_HAA", "FL_HFE", "FL_KFE", "FR_HAA", "FR_HFE", "FR_KFE", "HL_HAA", "HL_HFE", "HL_KFE", "HR_HAA", "HR_HFE", "HR_KFE"};
+      message_traj.points.push_back(message_point1)
+      message_traj.points.push_back(message_point2)
+      message_traj.points.push_back(message_point3)
+      message_traj.points.push_back(message_point4)
 
       publisher_->publish(message_traj);
     }

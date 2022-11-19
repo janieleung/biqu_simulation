@@ -20,22 +20,18 @@ https://github.com/open-dynamic-robot-initiative/robot_properties_bolt/blob/mast
   <xacro:include filename="$(find ros2_description_bolt)/urdf/solo_xacro/solo12.urdf.xacro"/>
 
   <!-- Include the ros2_control plugin and Hardware Description-->
-  <xacro:include filename="$(find ros2_description_bolt)/ros2_control/system_solo.ros2_control.xacro" />
+  <xacro:include filename="$(find ros2_description_bolt)/ros2_control/effort_solo.ros2_control.xacro" />
+  <!-- When using position as command interface -->
+  <!-- <xacro:include filename="$(find ros2_description_bolt)/ros2_control/system_solo.ros2_control.xacro" /> -->
 
   <!-- Include the Gazebo plugin for ros2_control-->
   <!-- Notes: https://github.com/ros-controls/gazebo_ros2_control/blob/master/README.md-->
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>$(find gazebo_ros2_control_bolt)/config/solo_gazebo_controller.yaml</parameters>
+      <!-- <parameters>$(find gazebo_ros2_control_bolt)/config/solo_gazebo_controller.yaml</parameters> -->
+      <parameters>$(find gazebo_ros2_control_bolt)/config/solo_forward_command_controller.yaml</parameters>
     </plugin>
   </gazebo>
-
-  <!-- Might need to add Gazebo reference later-->
-  
-  <!--Attach Crane-->
-    <!-- <xacro:include filename="$(find ros2_description_bolt)/urdf/crane.urdf.xacro" />
-    <xacro:crane parent="base_link" /> -->
-
 
   <!-- Add the full robot from urdf-->
   <xacro:solo_full

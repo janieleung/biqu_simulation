@@ -6,13 +6,15 @@ controller_manager:
 
     # Notes: https://github.com/ros-controls/ros2_controllers
     # Examples: https://github.com/ros-controls/ros2_control_demos
-    joint_group_controller:
-      type: position_controllers/JointGroupPositionController
     
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-joint_group_controller:
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+joint_trajectory_controller:
   ros__parameters:
     joints:
       - FL_HAA
@@ -32,5 +34,4 @@ joint_group_controller:
     state_interfaces:
       - position
       - velocity
-      - effort
-
+  

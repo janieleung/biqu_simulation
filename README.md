@@ -41,5 +41,5 @@ ros2 run waypoints_controller position_publisher
 #### Notes
 11/18
 * Solo12 Model: Correct Inertia, No Slipping
-* Position JointGroupController, Effort JointTrajectoryController
+* Position JointGroupController, Effort ForwardCommandController
 <img src="https://i.postimg.cc/2jtcdKqW/solo-upright.png" width="500">
